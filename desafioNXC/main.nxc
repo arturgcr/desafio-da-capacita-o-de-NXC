@@ -1,0 +1,66 @@
+
+#include "sensores\sensores.nxc"
+#include "portas\portas.nxc"
+#include "locomocao\locomocao.nxt"
+
+#define botao_central BTN4
+#define botao_direita BTN2
+
+bool primeira_etapa = false;
+bool segunda_etapa = false;
+bool selecao = false;
+
+mutex controleMotores;
+
+task main() {
+
+    while(segunda_etapa == false && primeira_etapa == false){
+        void inicializaSensores();
+
+        if(ButtonPressed(botao_central, false)){
+
+            int borda = Sensor(sensor_de_borda);
+            PlayFileEx("Dog bark 1.rso", 4, false);
+            wait(400);
+            primeira_etapa = true;
+        }
+
+        if(ButtonPressed(botao_direita, false)){
+
+            PlayFileEx(("startup.rso", 4, false);
+            wait(400);
+            segunda_etapa = true;
+        }
+
+    if(segunda_etapa && primeira_etapa){
+
+        wait(5000);
+
+        while(true){
+
+            detectaOponente()
+            detectaBorda(borda)
+
+            potenciaMotores(motor_direito, 80);
+            potenciaMotores(motor_esquerdo, -80);
+
+            if(detectaBorda()){
+                Acquire(controleMotores);
+                potenciaMotores(motor_direito, -100);
+                potenciaMotores(motor_esquerdo, -100);
+                wait(200);
+                potenciaMotores(motor_direito, 80);
+                potenciaMotores(motor_esquerdo, -80);
+                Release(controleMotores);
+            }
+            if(detectaOponente()){
+                Acquire(controleMotores);
+                potenciaMotores(motor_direito, 100);
+                potenciaMotores(motor_esquerdo, 100);
+                Release(controleMotores);
+            }
+        }
+
+    }
+}
+}

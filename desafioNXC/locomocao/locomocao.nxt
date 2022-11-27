@@ -1,0 +1,17 @@
+#ifndef locomocao_nxc
+
+#include "portas\portas.nxc"
+
+safecall void potenciaMotores(byte motor, int potencia){
+
+    if (potencia == 0) {
+        Off(motor);
+    }
+
+    else {
+        OnFwd(motor, potencia);
+    }
+
+}
+
+#endif locomocao_nxc

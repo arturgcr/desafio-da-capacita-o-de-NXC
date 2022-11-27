@@ -1,0 +1,11 @@
+#ifndef portas_nxc
+
+//porta dos motores
+#define motor_direito 0x00 // porta A
+#define motor_esquerdo 0x01 // porta B
+
+// porta do sensor ultrassonico
+#define  sensor_ultrassonico 0 // porta 1
+#define sensor_de_borda 1 // porta 2
+
+#endif portas_nxc

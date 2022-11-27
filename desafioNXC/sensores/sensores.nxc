@@ -1,0 +1,40 @@
+#ifndef sensores_nxc
+
+#include "portas\portas.nxc"
+
+#define limiar_de_detecacao 400
+
+// função para iniciar os sensores
+void inicializaSensores(){
+    //define o sensor ultrassonico
+    SetSensorUltrasonic(sensor_ultrassonico);
+    //define o sensor de luz(borda)
+    SetSensorLight(sensor_de_borda);
+}
+
+//função para detectar os oponentes pelo sensor ultrassônico
+bool detectaOponente(){
+
+    if(SensorUS(sensor_ultrassonico) <= limiar_de_detecacao){
+        return true
+    }
+
+    else if (SensorUS(sensor_ultrassonico)) > limiar_de_detecacao{
+        return false
+    }
+
+}
+
+bool detectaBorda(int parametro_da_borda){
+
+    if(Sensor(sensor_de_borda) <= parametro_da_borda){
+        return true
+
+    else if(Sensor(sensor_de_borda) > parametro_da_borda){
+        return true
+    }
+
+}
+
+
+#endif sensores_nxc
